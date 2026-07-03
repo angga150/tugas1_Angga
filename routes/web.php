@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SaleController;
 
 // Public routes
 Route::get('/', function () {
@@ -61,4 +62,9 @@ Route::middleware(['auth'])->group(function () {
 // Product management routes
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('products', ProductsController::class);
+});
+
+// Sale management routes
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('sales', SaleController::class);
 });
